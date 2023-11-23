@@ -286,7 +286,7 @@ struct MaterialsResource {
 }
 
 fn clicks_handler(mut events: EventReader<MouseButtonInput>, mut cam_query: Query<&mut FlyCamera>) {
-    for event in events.iter() {
+    for event in events.read() {
         if event.button == MouseButton::Left {
             if event.state == ButtonState::Pressed {
                 for mut cam in cam_query.iter_mut() {
